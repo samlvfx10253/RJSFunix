@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardHeader, CardImg } from 'reactstrap';
 
 class StaffDetail extends Component {
     constructor(props) {
@@ -10,7 +10,7 @@ class StaffDetail extends Component {
             return (
                 <div className="container">
                     <Card>
-                        <h4>Thông tin chi tiết</h4>
+                        <CardHeader tag='h2'>Thông tin chi tiết</CardHeader>
                         <div className="row">
                             <div className="col-12 col-md-3">
                                 <CardImg top src={this.props.staff.image} alt={this.props.staff.name} />

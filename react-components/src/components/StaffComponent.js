@@ -17,9 +17,9 @@ class Staff extends Component {
             return (
                 <div key={staff.id} className='col-12 col-md-5 col-xl-3 m-1'>
                     <Card className='card-container' key={staff.id}
-                        style={{cursor: "pointer"}}
+                        style={{ cursor: "pointer" }}
                         onClick={() => this.onSelectedStaff(staff)}>
-                        <CardTitle>{staff.name}</CardTitle>
+                        <CardTitle style={{ textAlign: "center" }} tag='h5'>{staff.name}</CardTitle>
                     </Card>
                 </div>
             )
