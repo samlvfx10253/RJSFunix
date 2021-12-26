@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
     Card, CardImg, CardText, CardBody,
-    CardTitle, Fade
+    CardTitle
 } from 'reactstrap';
 
 class Dishdetail extends Component {
@@ -49,12 +49,14 @@ class Dishdetail extends Component {
     render() {
         if (this.props.dish != null) {
             return (
-                <div className='row'>
-                    <div className='col-12 col-md-5 m-1'>
-                        {this.renderDetail(this.props.dish)}
-                    </div>
-                    <div className='col-12 col-md-5 m-1'>
-                        {this.renderComment(this.props.dish.comments)}
+                <div className='container'>
+                    <div className='row'>
+                        <div className='col-12 col-md-5 m-1'>
+                            {this.renderDetail(this.props.dish)}
+                        </div>
+                        <div className='col-12 col-md-5 m-1'>
+                            {this.renderComment(this.props.dish.comments)}
+                        </div>
                     </div>
                 </div>
             );
