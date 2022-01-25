@@ -1,31 +1,46 @@
 import React from 'react';
 import {
     Card, CardImg, CardImgOverlay,
-    CardTitle
+    CardTitle, Breadcrumb, BreadcrumbItem
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-function RenderItem({ dish, onClick }) {
+function RenderItem({ dish }) {
     return (
-        <Card key={dish.id}
-            onClick={() => onClick(dish.id)}>
-            <CardImg width="100%" src={dish.image} alt={dish.name} />
-            <CardImgOverlay>
-                <CardTitle tag='h6'>{dish.name}</CardTitle>
-            </CardImgOverlay>
+        <Card key={dish.id}>
+            <Link to={`/menu/${dish.id}`}>
+                <CardImg width="100%" src={dish.image} alt={dish.name} />
+                <CardImgOverlay>
+                    <CardTitle tag='h6'>{dish.name}</CardTitle>
+                </CardImgOverlay>
+            </Link>
         </Card>
     );
 }
+
 const Menu = (props) => {
     const menu = props.dishes.map((dish) => {
         return (
             <div key={dish.id} className="col-12 col-md-5 m-1">
-                <RenderItem dish={dish} onClick={props.onClick} />
+                <RenderItem dish={dish}/>
             </div>
         )
     });
 
     return (
         <div className="container">
+            <div className='row'>
+                <Breadcrumb>
+                    <BreadcrumbItem>
+                        <Link to='/home'>Home</Link>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem active>Menu</BreadcrumbItem>
+                </Breadcrumb>
+                <div className="col-12">
+                    <h3>Menu</h3>
+                    <hr />
+                </div>
+            </div>
             <div className="row">
                 {menu}
             </div>
